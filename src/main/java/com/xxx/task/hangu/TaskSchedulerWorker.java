@@ -1,5 +1,6 @@
 package com.xxx.task.hangu;
 
+import com.hanggu.consumer.callback.RpcResponseCallback;
 import com.xxx.task.model.ApiResult;
 import com.xxx.task.model.TaskContext;
 
@@ -8,5 +9,5 @@ import com.xxx.task.model.TaskContext;
  */
 public interface TaskSchedulerWorker {
 
-    ApiResult<Long> asyncDealTask(TaskContext taskContext);
+    ApiResult<Long> asyncDealTask(TaskContext taskContext, RpcResponseCallback callback);
 }
