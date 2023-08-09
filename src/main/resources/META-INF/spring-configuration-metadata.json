@@ -10,7 +10,7 @@
     {
       "name": "task.scheduler.app-service-name",
       "type": "java.lang.String",
-      "description": "应用名，在ace中，应用名就是 proxy",
+      "description": "应用名",
       "sourceType": "com.xxx.task.properties.TaskSchedulerProperties"
     },
     {

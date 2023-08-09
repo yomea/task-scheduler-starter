@@ -15,8 +15,6 @@
 
   <properties>
     <spring-boot-version>2.1.9.RELEASE</spring-boot-version>
-    <aace.version>4.0.8-SNAPSHOT</aace.version>
-    <xxx.util.version>1.1.38-SNAPSHOT</xxx.util.version>
   </properties>
 
 

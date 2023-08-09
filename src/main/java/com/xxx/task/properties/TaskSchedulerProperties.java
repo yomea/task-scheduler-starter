@@ -13,7 +13,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 public class TaskSchedulerProperties {
 
     /**
-     * 应用名，在ace中，应用名就是 proxy
+     * 应用名
      */
     private String appServiceName;
 
