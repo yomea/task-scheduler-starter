@@ -9,5 +9,15 @@ import com.xxx.task.model.TaskContext;
  */
 public interface TaskSchedulerWorker {
 
-    ApiResult<Long> asyncDealTask(TaskContext taskContext, RpcResponseCallback callback);
+    /**
+     * 用于客户端引入该包时进行异步调用
+     * {@link #asyncDealTask(TaskContext)}
+     * @param taskContext
+     * @param callback
+     * @return
+     */
+    default ApiResult<Long> asyncDealTask(TaskContext taskContext, RpcResponseCallback callback) {
+        return null;
+    }
+    ApiResult<Long> asyncDealTask(TaskContext taskContext);
 }

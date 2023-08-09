@@ -1,5 +1,6 @@
 package com.xxx.task.hangu.impl;
 
+import com.hanggu.consumer.callback.RpcResponseCallback;
 import com.hanggu.provider.annotation.HangguService;
 import com.xxx.task.constant.TaskScheduleConstant;
 import com.xxx.task.context.TaskScheduleMetaContext;
