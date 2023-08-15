@@ -1,7 +1,7 @@
 # Auto Configuration
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-com.xxx.task.starter.TaskSchedulerAutoConfiguration
+com.hangu.task.starter.TaskSchedulerAutoConfiguration
 
 # Application Listeners
 org.springframework.context.ApplicationListener=\
-com.xxx.task.listener.TaskSchedulerSpringBootAppListener
+com.hangu.task.listener.TaskSchedulerSpringBootAppListener
