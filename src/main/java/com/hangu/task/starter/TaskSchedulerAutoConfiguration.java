@@ -1,8 +1,9 @@
 package com.hangu.task.starter;
 
-import com.hanggu.consumer.annotation.ReferenceScan;
-import com.hanggu.consumer.factory.ReferenceFactoryBean;
-import com.hanggu.provider.factory.ServiceFactoryBean;
+import com.hangu.common.entity.ServerInfo;
+import com.hangu.consumer.annotation.ReferenceScan;
+import com.hangu.consumer.factory.ReferenceFactoryBean;
+import com.hangu.provider.factory.ServiceFactoryBean;
 import com.hangu.task.constant.TaskScheduleConstant;
 import com.hangu.task.hangu.TaskSchedulerFacade;
 import com.hangu.task.hangu.TaskSchedulerWorker;
@@ -34,14 +35,15 @@ public class TaskSchedulerAutoConfiguration {
     public ServiceFactoryBean<TaskSchedulerWorker> taskSchedulerWorker() {
 
         String appServiceName = taskSchedulerProperties.getAppServiceName();
-        if(StringUtils.isEmpty(appServiceName)) {
+        if (StringUtils.isEmpty(appServiceName)) {
             throw new RuntimeException("启用定时任务调度时，task.scheduler.appServiceName 的属性不能为空");
         }
 
-        ServiceFactoryBean<TaskSchedulerWorker> serviceFactoryBean = new ServiceFactoryBean(
-            TaskScheduleConstant.WORKER_PROXY_NAME + taskSchedulerProperties.getAppServiceName(),
-            TaskScheduleConstant.WORKER_INTERFACE_NAME,
-            "",
+        ServerInfo serverInfo = new ServerInfo();
+        serverInfo.setGroupName(TaskScheduleConstant.WORKER_PROXY_NAME + taskSchedulerProperties.getAppServiceName());
+        serverInfo.setInterfaceName(TaskScheduleConstant.WORKER_INTERFACE_NAME);
+        serverInfo.setVersion("");
+        ServiceFactoryBean<TaskSchedulerWorker> serviceFactoryBean = new ServiceFactoryBean(serverInfo,
             TaskSchedulerWorker.class,
             new TaskSchedulerWorkerImpl()
         );
@@ -56,12 +58,14 @@ public class TaskSchedulerAutoConfiguration {
     @Bean
     public ReferenceFactoryBean<TaskSchedulerFacade> taskSchedulerFacade(Environment env) {
 
+        ServerInfo serverInfo = new ServerInfo();
+        serverInfo.setGroupName("TaskScheduler$TaskSchedulerFacade");
+        serverInfo.setInterfaceName("TaskSchedulerFacade");
+        serverInfo.setVersion("");
         ReferenceFactoryBean<TaskSchedulerFacade> referenceFactoryBean = new ReferenceFactoryBean(
-            "TaskScheduler$TaskSchedulerFacade",
-            "TaskSchedulerFacade",
-            "",
+            serverInfo,
             TaskSchedulerFacade.class
-            );
+        );
 
         return referenceFactoryBean;
     }

@@ -1,13 +1,13 @@
 package com.hangu.task.hangu;
 
-import com.hanggu.consumer.annotation.HangguReference;
+import com.hangu.consumer.annotation.HanguReference;
 import com.hangu.task.model.ApiResult;
 import com.hangu.task.model.TimerTaskRequest;
 
 /**
  * Created by wuzhenhong on 10/12/21 5:13 PM
  */
-@HangguReference(groupName = "TaskScheduler$TaskSchedulerFacade", interfaceName = "TaskSchedulerFacade")
+@HanguReference(groupName = "TaskScheduler$TaskSchedulerFacade", interfaceName = "TaskSchedulerFacade")
 public interface TaskSchedulerFacade {
 
     /**

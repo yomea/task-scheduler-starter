@@ -1,6 +1,6 @@
 package com.hangu.task.hangu;
 
-import com.hanggu.consumer.callback.RpcResponseCallback;
+import com.hangu.common.callback.RpcResponseCallback;
 import com.hangu.task.model.ApiResult;
 import com.hangu.task.model.TaskContext;
 
